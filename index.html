@@ -79,6 +79,22 @@
       <div class="release"><div class="release-top"><span class="release-v devnow">NEXT · 확장검증</span><span class="release-title">KOSPI Technical Edge 확장검증</span></div><p>1차 KOSPI 연구에서 Trend와 Relative Strength의 같은 날 종목 간 상대순위를 이용한 후보가 연구 후보로 남았지만, 별도 종목 holdout에서 충분한 재현성이 확인되지 않아 Production에는 적용하지 않았습니다.</p><ul><li>사전등록된 KOSPI 240종목을 사용</li><li>192개 Development와 48개 Untouched Holdout으로 분리</li><li>Development 결과를 확인한 뒤 사양을 고정하고 Holdout을 확인</li><li>검증 결과가 나오기 전까지 Production 점수·Risk·Confidence·기술신호 기준은 유지</li></ul></div>
 
       <div class="release"><div class="release-top"><span class="release-v">v2.7.2 · 현재</span><span class="release-title">Analysis UX, News Quality &amp; Service Stability</span></div><p>Production 점수 기준은 그대로 유지하면서, 분석 결과를 더 빠르게 탐색하고 변화와 뉴스를 덜 복잡하게 확인할 수 있도록 사용성을 보강했습니다.</p>
+        <div class="release-date">2026.08.25</div>
+        <div class="timeline">
+          <div class="t-item"><div class="t-head"><span class="t-time">01:08</span><span class="t-title">최근 분석 이력 조회 추가</span></div><ul><li><strong>/history 종목</strong> 또는 <strong>/이력 종목</strong>으로 내 관심종목의 최근 성공 분석을 다시 확인할 수 있습니다.</li><li>종목별 최근 이력을 현재 점수 버전 기준으로 최대 <strong>20개</strong>까지 보관하고, 한 페이지에 5개씩 Edge·Risk·Confidence·추세를 보여줍니다.</li><li><strong>/history 005930 2</strong>처럼 페이지를 지정할 수 있으며 숫자형 국내 종목코드도 그대로 인식합니다.</li><li>이력은 사용자별·종목별·점수 버전별로 분리되며, 저장된 결과를 읽는 기능이라 새 시세 조회나 AI 재분석을 실행하지 않습니다.</li><li>Telegram 명령 메뉴에는 <strong>/history</strong>가 추가되어 현재 <strong>/menu · /analyze · /history · /settings · /kr · /us · /help</strong> 7개 핵심 명령을 표시합니다.</li></ul></div>
+        </div>
+
+        <div class="release-date">2026.08.23</div>
+        <div class="timeline">
+          <div class="t-item"><div class="t-head"><span class="t-time">13:03</span><span class="t-title">등록 종목 한 종목 빠른 분석</span></div><ul><li><strong>/analyze 삼성전자 · /analyze 005930 · /analyze NVDA</strong>처럼 내 관심종목 중 하나만 바로 분석할 수 있습니다.</li><li>미등록 종목은 자동으로 추가하거나 분석하지 않아 관심종목 관리 흐름과 분리했습니다.</li></ul></div>
+        </div>
+
+        <div class="release-date">2026.08.22</div>
+        <div class="timeline">
+          <div class="t-item"><div class="t-head"><span class="t-time">15:04</span><span class="t-title">국내시장 정보 · AI 시장 해석 확장</span></div><ul><li><strong>/kr</strong>에서 KOSPI·KOSDAQ 지수뿐 아니라 검증된 <strong>시장 내부 흐름</strong>, KOSPI·KOSDAQ <strong>외국인·기관·개인 수급</strong>, <strong>거래대금·급등·급락 시장 주목 종목</strong>을 함께 확인할 수 있습니다.</li><li>수급 값은 원자료를 임의 환산하지 않고 표시하며, 시장 주목 종목은 지수 기여도 순위가 아니라 거래 집중·등락 순위로 안내합니다.</li><li>조건을 충족한 경우 AI가 정량·수급·시장 주목 근거를 연결해 해석을 덧붙입니다. AI가 실패하거나 사용할 수 없는 경우에도 정량 시장 정보는 그대로 표시합니다.</li></ul></div>
+          <div class="t-item"><div class="t-head"><span class="t-time">11:20</span><span class="t-title">영문 포함 국내 종목코드 지원</span></div><ul><li><strong>0001A0</strong>처럼 영문이 포함된 국내 6자리 종목코드를 관심종목 추가·종목 탐색 흐름에서 일관되게 처리하도록 보강했습니다.</li></ul></div>
+        </div>
+
         <div class="release-date">2026.08.20</div>
         <div class="timeline">
           <div class="t-item"><div class="t-head"><span class="t-time">18:24</span><span class="t-title">메뉴 · 관심종목 UX 개편</span></div><ul><li>Telegram 명령 메뉴는 <strong>/menu · /analyze · /settings · /kr · /us · /help</strong> 핵심 6개만 표시해 처음 사용하는 화면을 단순화했습니다.</li><li><strong>/menu</strong>는 분석·관심종목·시장정보·알림·모닝 브리핑·설정으로 이동하는 홈 화면, <strong>/settings</strong>는 관심종목·알림·조용한 시간·사용량을 관리하는 설정센터로 구성했습니다.</li><li><strong>/add</strong>만 입력하면 관심종목 추가 모드로 들어가 종목을 연속 입력하거나 여러 줄을 한 번에 붙여넣을 수 있으며, 오타·불명확한 입력에는 유사 종목 후보를 보여줍니다.</li><li>관심종목은 버튼으로 추가·삭제하고 <strong>한 칸 이동·맨 위/아래·원하는 위치 선택</strong>으로 관리할 수 있습니다. 설정한 순서는 관심종목 목록과 종목 선택 화면에 반영되며, 분석 요약과 모닝 브리핑은 중요한 종목을 먼저 보여줍니다.</li><li>기존 <strong>/add 종목 · /remove 종목 · /list · /usage</strong> 등 직접 입력 명령은 메뉴에서 숨겨졌을 뿐 계속 사용할 수 있습니다.</li></ul><a class="update-shot-link" href="assets/v2.7.2-menu-watchlist-ux-v2.svg" target="_blank" rel="noopener noreferrer" aria-label="v2.7.2 메뉴·관심종목 UX 개편 이미지 크게 보기"><img class="update-shot" src="assets/v2.7.2-menu-watchlist-ux-v2.svg" alt="v2.7.2 Telegram 메뉴와 관심종목 UX Before After 비교" loading="lazy"></a><div class="update-shot-caption">실제 Telegram UI를 바탕으로 구성한 v2.7.2 UX 업데이트 안내 이미지 · 이미지를 누르면 크게 볼 수 있습니다.</div></div>
@@ -148,7 +164,9 @@
       <div class="command-item"><code>/add 종목</code><strong>관심종목 추가</strong><p><code>/추가</code>도 사용할 수 있습니다. 국내·미국 종목을 종목명 또는 코드/티커로 등록합니다.</p></div>
       <div class="command-item"><code>/analyze</code><strong>전체 관심종목 분석</strong><p>인자 없이 입력하면 등록된 관심종목 전체를 분석합니다. <code>/분석</code>도 사용할 수 있습니다.</p></div>
       <div class="command-item"><code>/analyze 종목</code><strong>한 종목 빠른 분석</strong><p><code>/analyze 삼성전자</code>, <code>/analyze 005930</code>, <code>/analyze NVDA</code>처럼 내 관심종목 중 하나만 분석합니다. 미등록 종목은 자동 추가하거나 분석하지 않습니다.</p></div>
+      <div class="command-item"><code>/history 종목</code><strong>최근 분석 이력</strong><p><code>/이력 삼성전자</code>도 사용할 수 있습니다. 내 관심종목의 최근 성공 분석을 현재 점수 버전 기준으로 최대 20개까지 보관해 Edge·Risk·Confidence·추세를 5개씩 확인합니다. 페이지를 넘길 때는 <code>/history 005930 2</code>처럼 입력합니다. 저장된 이력을 조회하므로 새 시세 조회나 AI 재분석은 실행하지 않습니다.</p></div>
       <div class="command-item"><code>/usage</code><strong>남은 분석 횟수</strong><p><code>/사용량</code>도 동일합니다. 오늘 사용한 횟수와 남은 분석 횟수를 확인합니다.</p></div>
+      <div class="command-item"><code>/kr</code><strong>국내 시장 정보</strong><p>KOSPI·KOSDAQ 지수와 검증된 시장 내부 흐름, 투자자 수급, 시장 주목 종목을 확인합니다. 조건이 맞으면 AI 시장 해석이 보조로 붙으며, AI가 실패해도 정량 시장 정보는 그대로 표시됩니다.</p></div>
       <div class="command-item"><code>/us</code><strong>미국 시장 정보</strong><p>미국 주요 지수와 시장 흐름을 별도로 확인합니다.</p></div>
       <div class="command-item"><code>/alerts_on</code><strong>장중 변화 알림 켜기</strong><p><code>/알림켜기</code>도 동일합니다.</p></div>
       <div class="command-item"><code>/alerts_status</code><strong>알림 상태 확인</strong><p><code>/알림상태</code>도 사용할 수 있습니다. 끄기는 <code>/alerts_off</code> 또는 <code>/알림끄기</code>입니다.</p></div>
